@@ -1,0 +1,11 @@
+<h1 style="text-align:center;color:red" >宇宙银河 38 星云实验室-实验记录</h1>
+
+<br/>
+<br/>
+
+<form action="{% url 'database:add_record' %}" method="post" name="add_record">
+    {% csrf_token %}
+    <p align="center"><span>标题: </span><input type="text" style="width:300px;height:40" name="headline"></p>
+    <p align="center"><span>内容: </span><input type="text" style="width:500px;height:600px" name="content"></p>
+    <p align="center"><input align="center" type="submit" value="提交"></p>
+</form>

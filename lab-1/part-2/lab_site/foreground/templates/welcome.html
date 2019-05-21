@@ -1,0 +1,18 @@
+<h1 style="text-align:center;color:black">欢迎来到 UNIVERSIAL-Lab 项目管理平台</h1>
+
+<br/>
+<br/>
+
+<form action="{% url 'visit_admin' %}" method="post" name="visit_admin">
+    {% csrf_token %}
+    <p align="center"><input align="center" style="height:60px;width:200px" type="submit" value="管理员入口处"></p>
+</form>
+
+<form action="{% url 'visit_detail' %}" method="post" name="visit_detail">
+    {% csrf_token %}
+    <p align="center"><input align="center" style="height:60px;width:200px" type="submit" value="项目管理信息"></p>
+</form>
+<form action="{% url 'visit_submit' %}" method="post" name="visit_submit">
+    {% csrf_token %}
+    <p align="center"><input align="center" style="height:60px;width:200px" type="submit" value="提交实验报告"></p>
+</form>

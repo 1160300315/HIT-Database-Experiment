@@ -1,0 +1,62 @@
+CREATE DATABASE lab_1;
+USE lab_1
+
+CREATE TABLE TEACHER 
+(
+	Name CHAR(10),
+	Title CHAR(10),
+	Email CHAR(10),
+	PRIMARY KEY (Name)
+);
+
+CREATE TABLE PROJECT  
+(
+	Name CHAR(10),
+	Reward INT,
+	Coverage INT,
+	PRIMARY KEY (Name)
+);
+
+CREATE TABLE FACILITY 
+(
+	Number INT(10),
+	Type ENUM('Desktop', 'GPU', 'DATA'),
+	PAddress CHAR(10),
+	PRIMARY KEY (Number)
+);
+
+CREATE TABLE REPOSITORY
+(
+	Address CHAR(10),
+	Capacity INT,
+	PRIMARY KEY (Address)
+);
+
+CREATE TABLE GRADUATE
+(
+	Name CHAR(10),
+	Class INT,
+	Gname CHAR(10),
+	PRIMARY KEY (Name)
+);
+
+CREATE TABLE BRING
+(
+	TName CHAR(10), 
+	PName CHAR(10),
+	FNumber INT,
+	Year INT, 
+	Month INT, 
+	Day INT, 
+	FOREIGN KEY (TName) REFERENCES TEACHER(Name),
+	FOREIGN KEY (PName) REFERENCES PROJECT(Name),
+	FOREIGN KEY (FNumber) REFERENCES FACILITY(Number)
+);
+
+CREATE TABLE WORK
+(
+	GNAME CHAR(10),
+	PAddress CHAR(10),
+	FOREIGN KEY (GNAME) REFERENCES GRADUATE(Name),
+	FOREIGN KEY (PAddress) REFERENCES REPOSITORY(Address)
+);

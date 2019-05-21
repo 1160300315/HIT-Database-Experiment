@@ -1,0 +1,180 @@
+<html>
+
+<head>
+<style type="text/css">
+#customers
+  {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  width:100%;
+  border-collapse:collapse;
+  }
+
+#customers th, #customers th
+  {
+  font-size:1em;
+  border:1px solid #98bf21;
+  padding:3px 7px 2px 7px;
+  }
+
+#customers th
+  {
+  font-size:1.1em;
+  text-align:left;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#A7C942;
+  color:#ffffff;
+  }
+
+#customers tr.alt th
+  {
+  color:#000000;
+  background-color:#EAF2D3;
+  }
+</style>
+</head>
+
+<h1 style="text-align:center;color:red">宇宙银河 38 星云实验室-项目管理表</h1>
+
+<br/>
+
+<body>
+    <table id="customers">
+        <tr>
+            <th>项目编码</th>
+            <th>全称</th>
+            <th>指导老师</th>
+            <th>实验设备</th>
+            <th>引入时间</th>
+        </tr>
+
+        {% for brought_in in brought_in_list.all %}
+
+        <tr class="alt">
+            <th>{{ brought_in.id }}</th>
+            <th>{{ brought_in.teacher.name }}</th>
+            <th>{{ brought_in.project.name }}</th>
+            <th>{{ brought_in.facility.id }}</th>
+            <th>{{ brought_in.date }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>工作编码</th>
+            <th>研究生</th>
+            <th>仓库地址</th>
+        </tr>
+
+        {% for work_on in work_on_list.all %}
+
+        <tr class="alt">
+            <th>{{ work_on.id }}</th>
+            <th>{{ work_on.graduate.name }}</th>
+            <th>{{ work_on.repository.address }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>研究生姓名</th>
+            <th>年级</th>
+            <th>指导师兄</th>
+        </tr>
+
+        {% for graduate in graduate_list.all %}
+
+        <tr class="alt">
+            <th>{{ graduate.name }}</th>
+            <th>{{ graduate.get_level_display }}</th>
+            <th>{{ graduate.leader.name }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>教师姓名</th>
+            <th>职称</th>
+            <th>邮箱</th>
+        </tr>
+
+        {% for teacher in teacher_list.all %}
+
+        <tr class="alt">
+            <th>{{ teacher.name }}</th>
+            <th>{{ teacher.position }}</th>
+            <th>{{ teacher.email }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>项目名称</th>
+            <th>报酬（单位：万）</th>
+            <th>时限（单位：天）</th>
+        </tr>
+
+        {% for project in project_list.all %}
+
+        <tr class="alt">
+            <th>{{ project.name }}</th>
+            <th>{{ project.salary }}</th>
+            <th>{{ project.coverage }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>设备编号</th>
+            <th>类型</th>
+            <th>所属仓库地址</th>
+        </tr>
+
+        {% for facility in facility_list.all %}
+
+        <tr class="alt">
+            <th>{{ facility.id }}</th>
+            <th>{{ facility.get_type_display }}</th>
+            <th>{{ facility.repository.address }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+
+    <table id="customers">
+        <tr>
+            <th>仓库地址</th>
+            <th>容量（单位：GB）</th>
+        </tr>
+
+        {% for repository in repository_list.all %}
+
+        <tr class="alt">
+            <th>{{ repository.address }}</th>
+            <th>{{ repository.capacity }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
